@@ -1,0 +1,46 @@
+const { EmbedBuilder } = require ('discord.js');
+
+module.exports = {
+    DESCRIPTION: "Desbanea a cualquier usuario mencionado",
+    PERMISSIONS: ["BanMembers"],
+
+    async execute(client, message, args, prefix, errorEmbed) {
+
+        const authorcmd = message.author;
+        const userId = args[0];
+
+        if (!userId || isNaN(userId))
+            return message.channel.send({ embeds: [errorEmbed('Debes proporcionar un ID de usuario válido.')] });
+
+        const bans = await message.guild.bans.fetch();
+        const bannedUser = bans.get(userId);
+
+        if (!bannedUser)
+            return message.channel.send({ embeds: [errorEmbed('El usuario con el ID proporcionado no está baneado.')] });
+
+        const embed2 = new EmbedBuilder()
+            .setColor("Green")
+            .setTitle(`:name_badge: Has sido desbaneado de: ${message.guild.name}`)
+            .setDescription(`¡**${authorcmd.username}** te ha desbaneado!`)
+            .setTimestamp();
+
+        try {
+            await message.guild.members.unban(bannedUser.user.id);
+            await client.users.cache.get(bannedUser.user.id).send({ embeds: [embed2] });
+        } catch (error) {
+            return message.reply({ embeds: [errorEmbed('Ha ocurrido un error al intentar desbanear al usuario.')] });
+        }
+
+        const embed = new EmbedBuilder()
+            .setColor("Green")
+            .setTitle(":white_check_mark: Usuario desbaneado correctamente :scales:")
+            .setDescription(`¡El usuario ha sido desbaneado con éxito!`)
+            .setTimestamp()
+            .addFields(
+                { name: `Usuario`, value: `<@${userId}>`, inline: true },
+                { name: `Moderador`, value: `${authorcmd.username}`, inline: true },
+            );
+
+        await message.channel.send({ embeds: [embed] });
+    }
+}

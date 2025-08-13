@@ -1,0 +1,39 @@
+{
+  "name": "basic-lite-3",
+  "version": "1.0.0",
+  "description": "La tercera es la vencida!",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.17.0",
+    "@distube/deezer": "^2.0.1",
+    "@distube/soundcloud": "^2.0.0",
+    "@distube/spotify": "^2.0.2",
+    "@distube/youtube": "^1.0.2",
+    "@distube/ytdl-core": "^4.13.4",
+    "avconv": "^3.1.0",
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "colors": "^1.4.0",
+    "discord.js": "^14.15.3",
+    "distube": "^5.0.2",
+    "docx": "^8.5.0",
+    "dotenv": "^16.4.5",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^5.2.0",
+    "formidable": "^3.5.1",
+    "genius-lyrics": "^4.4.7",
+    "git-last-commit": "^1.0.1",
+    "glob": "^10.4.1",
+    "libsodium-wrappers": "^0.7.13",
+    "mathjs": "^13.0.0",
+    "mime-types": "^2.1.35",
+    "node-fetch": "^3.3.2",
+    "pdf-lib": "^1.17.1"
+  }
+}

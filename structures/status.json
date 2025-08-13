@@ -1,0 +1,26 @@
+[
+    {
+        "name": "¡El regreso de Basic-Lite!",
+        "type": "ActivityType.Playing"
+    },
+    {
+        "name": "`${bot.guilds.cache.size} servers.`",
+        "type": "ActivityType.Watching"
+    },
+    {
+        "name": "`con ${bot.users.cache.size} personas.`",
+        "type": "ActivityType.Playing"
+    },
+    {
+        "name": "música 24/7",
+        "type": "ActivityType.Listening"
+    },
+    {
+        "name": "con Ripple onee...",
+        "type": "ActivityType.Competing"
+    },
+    {
+        "name": "a Miguel programando.",
+        "type": "ActivityType.Watching"
+    }
+]
